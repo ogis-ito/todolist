@@ -1,0 +1,11 @@
+body {
+  background-color: #FFFFC0;
+}
+
+.error {
+  color: red;
+}
+
+.info {
+  color: blue;
+}
