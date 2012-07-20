@@ -1,0 +1,33 @@
+@(customers: List[Customer], customerForm: Form[(String, String)])
+@import helper._
+@main("Customer List") {
+
+  <h1>顧客一覧（@customers.size 名）</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>氏名</th>
+        <th>住所</th>
+      </tr>
+    </thead>
+    <tbody>
+    @customers.map { customer =>
+      <tr>
+        <td>@customer.id</td>
+        <td>@customer.name</td>
+        <td>@customer.address</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+
+  <h2>新規顧客</h2>
+@form(routes.CustomerController.create) {
+  @inputText(customerForm("name"))
+  @inputText(customerForm("address"))
+  <input type="submit" value="Create">
+}
+
+}
